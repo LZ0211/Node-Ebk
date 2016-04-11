@@ -1,7 +1,7 @@
 # Node-Ebk
 Web Crawler which can config rules to collect information and generation e-book file
 # Use
-####Assume the module floder is "app"
+####Assume the module folder is "app"
 ```Javascript
 var App = require("./app")
 var app = new App()
