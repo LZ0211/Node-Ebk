@@ -1,0 +1,5 @@
+{
+    "Timeout":30000,
+    "reConnectTimes":3,
+    "Method":"GET"
+}

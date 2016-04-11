@@ -1,0 +1,118 @@
+body{
+	background-color:#ccc;
+}
+
+p{
+	text-indent:2em;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.btn{
+	width:48px;
+	height:48px;
+	float:left;
+	font-size:22px;
+}
+
+img{
+	width:800px;
+	border:0px;
+	height: auto;
+}
+
+.ico {
+	width:32px;
+	height:32px;
+}
+
+.main{
+	float:left;
+	top:10px;
+	left:50px;
+	width:1400px;
+	height:800px;
+	position:fixed;
+}
+
+.main #toolbar{
+	position:relative;
+	top:10px;
+	width:1400px;
+	height:40px;
+	margin-left:auto;
+	margin-right: auto;
+
+}
+
+#toolbar li{
+	position:relative;
+	top:4px;
+}
+
+.main .book{
+	position:relative;
+	width:1400px;
+	height:730px;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+.book .list{
+	width:380px;
+	float:right;
+	margin-top:0px;
+	background-color:#ccc;
+}
+
+.list select{
+	outline:none;
+	margin:10px;
+	width:330px;
+	height:710px;
+	background-color:#ccc;
+	border:0;
+	font-size:16px;
+	overflow:scroll;
+	overflow-x:hidden;
+}
+
+.content{
+	float:left;
+	left:0px;
+	margin-top:0px;
+	width:1000px;
+	height:730px;
+	font-size:24px;
+	background-color:#eee;
+	overflow:hidden;
+}
+
+.title{
+	height:50px;
+	width:1000px;
+	line-height:40px;
+	font-size:28px;
+	font-family:微软雅黑;
+	text-align:center;
+	background-color:#aaa
+}
+
+.chapter{
+	font-size:20px;
+	height:670px;
+	width:1020px;
+	text-align:left;
+	overflow-x:auto;
+	overflow-y:auto;
+}
+
+.editor{
+	background-color:#bbcce1;
+	width:1015px;
+}
+
+#iframe{
+	width:1200px;
+	height:680px;
+}

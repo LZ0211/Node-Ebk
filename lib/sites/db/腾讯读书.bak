@@ -1,0 +1,52 @@
+module.exports = {
+    "siteName":"腾讯读书",
+    "siteURL":"http://dushu.qq.com",
+    "history":[],
+    "charset":"utf8",
+    "deep":true,
+    "filter":{
+        "contentPage":function($){$('div.text a').parent('p').remove()}
+    },
+    "selector":{
+        "indexPage":{
+            "index":function($){return $('a').map((i,v)=>({href:$(v).attr('href'),text:$(v).text()})).toArray()},
+            'ajax':function ($){
+            },
+            "infoURL":null
+        },
+        "infoPage":{
+            "title":function($){return $('.book_info > h3 > a').text()},
+            "author":function($){return $('.book_info').find('.w_au').first().text()},
+            "brief":function($){return $('#bookIntro').text()},
+            "cover":function($){return $('.bookBox img').attr('src')},
+            "classes":function($){return $('.book_info').find('.w_auth').eq(0).text()},
+            "publish":function($){return $('.book_info').find('.w_au').eq(1).text()},
+            "isend":'完结'
+        },
+        "contentPage":{
+            "content":function($){return $('div.text').html()},
+            "ajax":function ($){
+                var script = $('script').text();
+                var matched,bid,uuid;
+                if (matched = script.match(/bid = "(\d+)"/)){
+                    bid = matched[1];
+                }
+                if (matched = script.match(/cid = "(\d+)"/)){
+                    uuid = matched[1];
+                }
+                return {
+                    url : '/index.php/Bookreader/' + bid + '/' + uuid,
+                    method : 'POST',
+                    data : 'lang&w=830&fontsize=14',
+                    dataType : "json",
+                    success : function (data){
+                        return data.Content;
+                    }
+                }
+            }
+        }
+    },
+    "replacer":{
+        "tags":["作品标签：","\\s"]
+    }
+}

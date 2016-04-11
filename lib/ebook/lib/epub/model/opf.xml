@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+&para;<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+&para;&nbsp;<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata">
+&para;&nbsp;&nbsp;<meta name="cover" content="cover-image"/>
+&para;&nbsp;&nbsp;<meta name="calibre:title_sort" content="{{=it.meta.title}}"/>
+&para;&nbsp;&nbsp;<meta name="calibre:timestamp" content="{{=it.meta.date}}"/>
+&para;&nbsp;&nbsp;<dc:subject>{{=it.meta.classes}}</dc:subject>
+&para;&nbsp;&nbsp;<dc:identifier id="uuid_id" opf:scheme="uuid">{{=it.meta.uuid}}</dc:identifier>
+&para;&nbsp;&nbsp;<dc:identifier opf:scheme="calibre">{{=it.meta.id}}</dc:identifier>
+&para;&nbsp;&nbsp;<dc:language>zh</dc:language>
+&para;&nbsp;&nbsp;<dc:title>{{=it.meta.title}}</dc:title>
+&para;&nbsp;&nbsp;<dc:date>{{=it.meta.date}}</dc:date>
+&para;&nbsp;&nbsp;<dc:creator opf:file-as="{{=it.meta.author}}" opf:role="aut">{{=it.meta.author}}</dc:creator>
+&para;&nbsp;&nbsp;<dc:source>{{=it.meta.source}}</dc:source>
+&para;&nbsp;&nbsp;<dc:publisher>裂章</dc:publisher>
+&para;&nbsp;&nbsp;<dc:description>{{=it.meta.brief}}</dc:description>
+&para;&nbsp;</metadata>
+&para;&nbsp;<manifest>
+&para;&nbsp;&nbsp;<item href="css/style.css" id="main-css" media-type="text/css"/>
+&para;&nbsp;&nbsp;<item href="coverpage.html" id="coverpage" media-type="application/xhtml+xml"/>
+{{? it.list && it.list.length > 0}}
+{{~ it.list :value}}
+&para;&nbsp;&nbsp;<item href="{{=value.id}}.html" id="Chapter_{{=value.id}}" title="{{=value.title}}" media-type="application/xhtml+xml"/>
+{{~}}
+{{?}}
+&para;&nbsp;&nbsp;<item href="images/cover.jpg" id="cover-image" media-type="image/jpeg"/>
+&para;&nbsp;&nbsp;<item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+&para;&nbsp;</manifest>
+&para;&nbsp;<spine toc="ncx">
+&para;&nbsp;&nbsp;<itemref idref="coverpage" linear="yes"/>
+{{? it.list && it.list.length > 0}}
+{{~ it.list :value}}
+&para;&nbsp;&nbsp;<itemref idref="Chapter_{{=value.id}}" linear="yes"/>
+{{~}}
+{{?}}
+&para;&nbsp;</spine>
+&para;&nbsp;<guide>
+&para;&nbsp;&nbsp;<reference href="coverpage.html" title="封面" type="cover"/>
+{{? it.list && it.list.length > 0}}
+{{~ it.list :value}}
+&para;&nbsp;&nbsp;<reference href="{{=value.id}}.html" title="{{=value.title}}" type="text"/>
+{{~}}
+{{?}}
+&para;&nbsp;</guide>
+&para;</package>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+&para;<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="zho">
+&para;&nbsp;<head>
+&para;&nbsp;&nbsp;<meta content="{{=it.meta.uuid}}" name="dtb:uid"/>
+&para;&nbsp;&nbsp;<meta content="1" name="dtb:depth"/>
+&para;&nbsp;&nbsp;<meta content="0" name="dtb:totalPageCount"/>
+&para;&nbsp;&nbsp;<meta content="0" name="dtb:maxPageNumber"/>
+&para;&nbsp;</head>
+&para;&nbsp;<docTitle>
+&para;&nbsp;&nbsp;<text>{{=it.meta.title}}</text>
+&para;&nbsp;</docTitle>
+&para;&nbsp;<docAuthor>
+&para;&nbsp;&nbsp;<text>{{=it.meta.author}}</text>
+&para;&nbsp;</docAuthor>
+&para;&nbsp;<navMap>
+&para;&nbsp;&nbsp;<navPoint id="coverpage" playOrder="0">
+&para;&nbsp;&nbsp;&nbsp;<navLabel>
+&para;&nbsp;&nbsp;&nbsp;&nbsp;<text>封面</text>
+&para;&nbsp;&nbsp;&nbsp;</navLabel>
+&para;&nbsp;&nbsp;&nbsp;<content src="coverpage.html"/>
+&para;&nbsp;&nbsp;</navPoint>
+{{? it.list && it.list.length > 0}}
+{{~ it.list :value}}
+&para;&nbsp;&nbsp;<navPoint class="chapter" id="Chapter_{{=value.id}}" playOrder="{{=value.id}}">
+&para;&nbsp;&nbsp;&nbsp;<navLabel>
+&para;&nbsp;&nbsp;&nbsp;&nbsp;<text>{{=value.title}}</text>
+&para;&nbsp;&nbsp;&nbsp;</navLabel>
+&para;&nbsp;&nbsp;&nbsp;<content src="{{=value.id}}.html"/>
+&para;&nbsp;&nbsp;</navPoint>
+{{~}}
+{{?}}
+&para;&nbsp;</navMap>
+&para;</ncx>

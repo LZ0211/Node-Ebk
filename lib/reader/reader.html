@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>book</title>
+</head>
+<link rel="stylesheet" type="text/css" href="reader/style.css" />
+
+<script type="text/javascript" src="reader/jquery.js"></script>
+<script type="text/javascript" src="reader/book.js"></script>
+<script type="text/javascript" src="reader/monitor.js"></script>
+<script type="text/javascript" src="reader/reader.js"></script>
+
+<body>
+
+<div class="main">
+  <div id="toolbar" class="tool">
+    <input type="file" id="file" accept="application/jbk," style="display: none;"/>
+  </div>
+  <div id="book" class="book">
+    <div id="content" class="content" align="center">
+      <div id="title" class="title"></div>
+      <div id="cover" class="chapter" style="display:none"></div>
+      <div id="chapter" class="chapter" style="display:none"></div>
+      <iframe id="iframe" class="chapter" style="display:none"></iframe>
+    </div>
+    <div class="list">
+      <ul>
+      </ul>
+      <select class="directory" id="directory" size="39"></select>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="reader/app.js"></script>
+ </body>
+</html>
