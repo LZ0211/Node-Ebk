@@ -1,0 +1,6 @@
+{
+  "name": "Downloader",
+  "version": "1.0.0",
+  "description": "Downloader module",
+  "main": "main.js"
+}

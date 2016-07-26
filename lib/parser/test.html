@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <script type="text/javascript" src="utils.js"></script>
+  <script type="text/javascript" src="lang.js"></script>
+  <textarea id="content" rows="50" cols="80"></textarea>
+  <input type="button" value="格式化" id="btn">
+  <script type="text/javascript">
+    var btn = document.getElementById('btn'),
+        content = document.getElementById('content');
+    btn.onclick = function (){
+      content.value = convert(Utils.mergeLines(content.value));
+    }
+  </script>
+ </body>
+</html>

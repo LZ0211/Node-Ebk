@@ -1,6 +1,6 @@
 var fs = require('fs'),
     path = require('path'),
-    Collector = require('./lib/Collector');
+    Downloader = require('./lib/Downloader');
 
 
 var makedirsSync = function (dir){
@@ -26,28 +26,16 @@ App.prototype.init = function (location){
 
 App.prototype.Project = function (url){
     if (typeof url === "string"){
-        var p = new Collector(url).start();
+        return new Downloader(url).execute();
     }else if (url instanceof Array){
-        var p = this.Project(url.shift());
-        url.forEach(function (u){p.merge(u)});
+        var p = new Downloader(url.shift());
+        url.forEach(function (u){p.mergeIndexURLs(u)});
+        return p.execute();
     }
-    return p;
 };
 
 App.prototype.update = function (dir){
-    if (typeof dir === "string"){
-        return new Collector().update(dir).start();
-    }else if (dir instanceof Array){
-        (function (){
-            var d = dir.shift();
-            var callee = arguments.callee;
-            if (d){
-                var pro = new Collector;
-                pro.update(d).start();
-                pro.on("end",callee)
-            }
-        })()
-    }
+    return new Downloader().update(dir);
 }
 
 module.exports = App;
