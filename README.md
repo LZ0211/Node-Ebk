@@ -38,11 +38,29 @@ App.config({
 App.execute();
     
 ```
+
+#### download muti-Quests
+```Javascript
+var App = require("./app")("./library");
+
+//config App arguments
+App.config({
+    "maxThreads":10,
+    "changeSource":true,
+    "genEbook":true
+});
+
+//execute Quest,start downloading
+App.start(["http://read.qidian.com/BookReader/9LxyoriyyTk1.aspx","http://read.qidian.com/BookReader/9LxyoriyyTk1.aspx"]);
+
+```
+
+
 #### update existing book
 ```Javascript
 
 var App = require("./app")("./library");
-app.update("爱潜水的乌贼/一世之尊");
+App.update("爱潜水的乌贼/一世之尊");
 
 ```
 #### equal to
@@ -58,10 +76,8 @@ App.update("爱潜水的乌贼/一世之尊");
 ```
 #### updates muli-Quests
 ```Javascript
-process.chdir("./library");
-var Downloader = require("./app/lib/collector");
-var quest = new Downloader();
-quest.update("爱潜水的乌贼/一世之尊").start()
+var App = require("./app")("./library");
+App.updates(["爱潜水的乌贼/一世之尊","..."]);
     
 ```
 
