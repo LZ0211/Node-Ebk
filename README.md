@@ -1,3 +1,5 @@
+# Author has abandoned this projec, and refactore to a new project https://github.com/LZ0211/Wedge
+
 # Node-Ebk
 Web Crawler which can config rules to collect information and generation e-book file
 # Use
